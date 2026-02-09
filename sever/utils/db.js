@@ -1,8 +1,13 @@
-import {Pool} from "pg";
+import pg from "pg";
+import dotenv from "dotenv";
 
-const connectionPool = new Pool({
-  connectionString:
-    "postgresql://postgres:pudit2010@localhost:5432/books-store",
+dotenv.config();
+
+const { Pool } = pg;
+
+const pool = new Pool({
+  connectionString: "postgresql://postgres:pudit2010@localhost:5432/books-store",
 });
 
-export default connectionPool;
+export { pool };
+export default pool;
